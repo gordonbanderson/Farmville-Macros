@@ -57,8 +57,8 @@ Execute the script, clicking
 Wham bam, RSI free farming
 
 
-Collecting The Pink Diamonds
-============================
+= Collecting The Pink Diamonds
+
 A similar script this time clicks in a vertical sweep pattern.  Full screen your Farmville browsers and zoom in sufficiently that the screen is covered in an area containing pink diamond like icons to collect.  Execute something similar to the following:
 
   ruby grid_click.rb 0 100 60 24 0  | xmacroplay -d 10  ":0.0" 
