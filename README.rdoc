@@ -2,6 +2,11 @@
 
 Clicking on lots of squares is rather tedious, and tedious repetitive things are what computers are good at... so why not script it?
 
+== Script Prerequisites
+
+Install Ruby and xmacro on the same Ubuntu machine that is running Farmville in a browser
+
+  sudo apt-get install xmacro ruby
 
 == Basic Script Usage
 Open Farmville on an a Linux computer (I tested with Ubuntu) and make Farmville full screen.  Zoom out 3 times, and do not drag the farm to move it.  This will ensure that it is in a consistent position.
@@ -33,8 +38,37 @@ By far the easiest way of arranging clicking is to arrange your farm in a grid o
 
 == Finding the start square
 
-The first problem is to find the location of the first square.  Provided the game is opened in a consistent manner then you should only have to do this once.  After experimentation
+The first problem is to find the location of the first square.  Provided the game is opened in a consistent manner then you should only have to do this once. Vary the values 200 and 400 in the following (the x,y screen pixel position) until you see the SW corner of the grid highlighted
 
   $ ruby clicks.rb 200  400   1 1  0  | xmacroplay -d 10  ":0.0" 
   
-test
+Run the same script over a bigger grid, to ensure that other grid squares are highlighted also.  You should ensure the last grid is highlighted
+
+  $ ruby clicks.rb 200  400   12 12  0  | xmacroplay -d 10  ":0.0"
+
+== Move the Farmer Out of the Grid
+Click on a square outside of the grid where harvesting is occuring, otherwise a dialog will appear asking you to change the look and or gender of your farmer.  I normally click on the NE corner square, the last one in the grid.
+
+== Run the Script
+Execute the script, clicking
+
+  $ ruby clicks.rb 200  400   12 12 1  | xmacroplay -d 10  ":0.0"
+
+Wham bam, RSI free farming
+
+
+Collecting The Pink Diamonds
+============================
+A similar script this time clicks in a vertical sweep pattern.  Full screen your Farmville browsers and zoom in sufficiently that the screen is covered in an area containing pink diamond like icons to collect.  Execute something similar to the following:
+
+  ruby grid_click.rb 0 100 60 24 0  | xmacroplay -d 10  ":0.0" 
+
+The parameters are the same as for the grid click 3d script, except that X,Y is the NW corner of the screen.  Vary the start coordinates and the number of rows and columns.  When happy that you have a sweep of your collection area, change the final 0 parameter to a one to execute button clicks during the sweep.
+
+
+
+
+
+== Video
+
+A video of the script in action can be found at http://www.youtube.com/watch?v=OGV1sVkGNMw
