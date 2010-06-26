@@ -1,0 +1,9 @@
+=Farmville Macro Clicker
+
+==Planting Procedure
+
+Test
+
+  ruby clicks.rb 200  400   6 6  0  | xmacroplay -d 10  ":0.0" 
+  
+test
