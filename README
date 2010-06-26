@@ -1,9 +1,40 @@
-=Farmville Macro Clicker
+= Farmville Macro Clicker
 
-==Planting Procedure
+Clicking on lots of squares is rather tedious, and tedious repetitive things are what computers are good at... so why not script it?
 
-Test
 
-  ruby clicks.rb 200  400   6 6  0  | xmacroplay -d 10  ":0.0" 
+== Basic Script Usage
+Open Farmville on an a Linux computer (I tested with Ubuntu) and make Farmville full screen.  Zoom out 3 times, and do not drag the farm to move it.  This will ensure that it is in a consistent position.
+
+Using a secure shell log in remotely to the machine being used to play Farmville.  To execute the scripts and move the mouse pointer do the following:
+
+  ruby grid_click_3d.rb X_PIXEL_START Y_PIXEL_START NUMBER_OF_ROWS NUMBER_OF_COLS CLICK
+  
+The parameters are as follows:
+* X_PIXEL_START The starting x coordinate in pixels of the SW corner where clicking will start
+* Y_PIXEL_START The starting y coordinate in pixels of the SW corner where clicking will start
+* NUMBER_OF_ROWS The number of rows to click on
+* NUMBER_OF_COLS The number of cols to click on
+* CLICK 0 to move the mouse and not click, 1 to click
+
+Turn off clicking when testing position of the clicking.
+
+The above only creates the macro script, to execute it do the following:
+
+  ruby grid_click_3d.rb X_PIXEL_START Y_PIXEL_START NUMBER_OF_ROWS NUMBER_OF_COLS CLICK | xmacroplay -d MILLISECS  ":0.0" 
+
+where MILLISECS is the delay (I use 10)
+
+== Farm Preparation
+
+By far the easiest way of arranging clicking is to arrange your farm in a grid of C columns by R rows, depending on how much space you have.
+
+== Harvesting / Plowing / Planting Procedure
+
+== Finding the start square
+
+The first problem is to find the location of the first square.  Provided the game is opened in a consistent manner then you should only have to do this once.  After experimentation
+
+  $ ruby clicks.rb 200  400   1 1  0  | xmacroplay -d 10  ":0.0" 
   
 test
